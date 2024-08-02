@@ -51,7 +51,7 @@ void compress(const std::string &temp_dir,
   //
   omp_set_dynamic(0);
 
-  std::cout << __FILE__ << ":" __LINE__ << ":DEBUG Starting compression...\n";
+  std::cout << __FILE__ << ":" << __LINE__ << ":DEBUG Starting compression...\n";
   auto compression_start = std::chrono::steady_clock::now();
 
   std::string infile_1, infile_2, outfile;

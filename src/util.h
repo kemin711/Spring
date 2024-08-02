@@ -27,6 +27,7 @@ static const char chartorevchar[128] = {
     0, 'G', 0, 0, 0, 'C', 0, 0, 0, 0, 0, 0, 'N', 0, 0, 0, 0, 0, 'A', 0, 0, 0,
     0, 0,   0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0,   0, 0, 0,
     0, 0,   0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0};
+
 struct compression_params {
   bool paired_end;
   bool preserve_order;
@@ -47,6 +48,9 @@ struct compression_params {
   bool paired_id_match;
   int num_reads_per_block;
   int num_reads_per_block_long;
+  /**
+   * Number of threads?
+   */
   int num_thr;
 };
 

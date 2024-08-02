@@ -25,6 +25,9 @@ limitations under the License.
 #include "id_compression/include/sam_block.h"
 #include "omp.h"
 #include "qvz/include/qvz.h"
+#include <cassert>
+#include <stdexcept>
+#include <iostream>
 
 namespace spring {
 
@@ -183,8 +186,13 @@ void generate_binary_binning_table(char *binary_binning_table,
                                    const unsigned int thr,
                                    const unsigned int high,
                                    const unsigned int low) {
+   if (33+thr > 127) {
+      std::cerr << "33+thr is more than 127\n";
+      throw std::logic_error("out of bound allocated for only 128 total");
+   }
+   //assert(33+thr) < 127;
   for (uint8_t i = 0; i < 33 + thr; i++) binary_binning_table[i] = 33 + low;
-  for (uint8_t i = 33 + thr; i <= 127; i++) binary_binning_table[i] = 33 + high;
+  for (uint8_t i = 33 + thr; i < 128; i++) binary_binning_table[i] = 33 + high;
 }
 
 // ID patterns

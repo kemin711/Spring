@@ -163,7 +163,7 @@ int main(int argc, char** argv) {
     else {
        std::cout << " when decompress";
     }
-    std::cout << " terminated unexpectedly with error: " << e.what() << endl;
+    std::cout << " terminated unexpectedly with error: " << e.what() << std::endl;
     std::cout << "Deleting temporary directory...\n";
     //boost::filesystem::remove_all(temp_dir);
     fs::remove_all(temp_dir);
